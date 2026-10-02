@@ -1,24 +1,68 @@
-
 <!DOCTYPE html>
 <html lang="pl">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Blog Klasowy</title>
+    <title>Z życia klasy</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
     <header>
-        <h1>Blog Klasowy</h1>
-        <p>Zdjęcia i opisy wydarzeń</p>
+        <h1>Z życia klasy</h1>
+        <div id="class-photo" class="header-photo-placeholder" role="img" aria-label="Zdjęcie grupowe klasy 5"></div>
+        <p>Wspomnienia naszych wydarzeń</p>
     </header>
 
-    <main id="posts"></main>
+    <main>
+        <nav class="class-tabs" aria-label="Wybór klasy">
+            <button class="class-tab" data-class="4" type="button">Klasa 4</button>
+            <button class="class-tab active" data-class="5" type="button">Klasa 5</button>
+            <button class="class-tab" data-class="6" type="button">Klasa 6</button>
+            <button class="class-tab" data-class="7" type="button">Klasa 7</button>
+            <button class="class-tab" data-class="8" type="button">Klasa 8</button>
+        </nav>
+        <section id="post-list"></section>
+    </main>
 
-    <footer>
-        <p>© 2026 Blog Klasowy</p>
-    </footer>
+    <!-- OKNO MODALNE -->
+    <div id="modal" class="modal">
+        <div class="modal-content">
+            <span id="close" class="close">&times;</span>
+            <h2 id="modal-title"></h2>
+            <img id="modal-img1" class="modal-img" src="" alt="">
+            <img id="modal-img2" class="modal-img" src="" alt="">
+            <p id="modal-desc"></p>
+        </div>
+    </div>
+
+    <button id="games-toggle" class="games-toggle" type="button">Gry</button>
+
+    <div id="games-panel" class="games-panel" aria-hidden="true">
+        <div class="games-panel-content">
+            <button id="games-close" class="games-close" type="button" aria-label="Zamknij gry">&times;</button>
+            <h2>Strefa gier</h2>
+            <p class="games-intro">Wybierz grę i zdobądź zwycięstwo.</p>
+            <div class="game-choices">
+                <button class="game-choice" data-game="snake" type="button">
+                    <span class="game-icon">&#128013;</span>
+                    <strong>Snake</strong>
+                    <small>Zdobądź 10 jabłek</small>
+                </button>
+                <button class="game-choice" data-game="snowflakes" type="button">
+                    <span class="game-icon">&#10052;</span>
+                    <strong>Śnieżynki</strong>
+                    <small>Kliknij 15 śnieżynek</small>
+                </button>
+                <button class="game-choice" data-game="memory" type="button">
+                    <span class="game-icon">&#128218;</span>
+                    <strong>Pamięć</strong>
+                    <small>Znajdź 6 par</small>
+                </button>
+            </div>
+            <div id="game-stage" class="game-stage" hidden></div>
+        </div>
+    </div>
 
     <script src="script.js"></script>
 </body>
